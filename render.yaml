@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: wind-risk-pricer
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
+    envVars:
+      - key: PORT
+        value: 10000
