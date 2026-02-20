@@ -102,7 +102,7 @@ if st.sidebar.checkbox("📍 Afficher sur la carte"):
     
     m = folium.Map(location=[latitude, longitude], zoom_start=10)
     folium.Marker([latitude, longitude], popup="Localisation sélectionnée").add_to(m)
-    folium_static(m, width=600, height=400)
+    folium_static(m, width=800, height=400)
 
 start_date = st.sidebar.date_input("Date de début", value=pd.to_datetime("2022-01-01"))
 end_date = st.sidebar.date_input("Date de fin", value=pd.to_datetime("2025-12-31"))
@@ -190,8 +190,8 @@ if st.session_state.get('calculation_done', False):
         st.write(wind_summary)
 
         # Visualisation de la distribution des vitesses de vent
-        fig_weibull_fit = plot_wind_speed_distribution(st.session_state.df)
-        st.plotly_chart(fig_weibull_fit, use_container_width=True)
+        fig_weibull_dist = plot_wind_speed_distribution(st.session_state.df)
+        st.plotly_chart(fig_weibull_dist, use_container_width=True)
 
         # Trend des vitesses de vent dans le temps
         fig_trend = plot_wind_speed_over_time(st.session_state.df)
