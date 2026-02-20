@@ -150,7 +150,7 @@ if calculate_button:
 
         # Calibration du modèle 
         shape, loc, scale = fit_weibull_distribution(df)
-        st.success(f"✅ Modèle de Weibull calibré : shape={shape:.2f}, scale={scale:.2f}")
+        st.success(f"✅ Modèle de Weibull calibré : shape(k)={shape:.2f}, scale(λ)={scale:.2f}")
 
         # Calcul de la prime d'assurance
         premium_df = calculate_premium(shape, scale, threshold, exposure, confidence_level=1/loading_factor)
