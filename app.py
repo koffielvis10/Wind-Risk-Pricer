@@ -15,7 +15,10 @@ st.set_page_config(page_title="Wind Risk Pricer",page_icon="🌪️",layout= "wi
 st.title("Wind Risk Pricer 🌪️")
 st.info("Cette application permet d'analyser les données de vent, de calibrer un modèle de Weibull, de calculer la probabilité de dépassement d'un seuil de vent et de calculer la prime d'assurance correspondante.")
 st.markdown("""=================================================================================================================""")
-
+st.markdown("Concepteur: [Elvis KOFFI](https://www.linkedin.com/in/elvis-koffi-9ab66522b/) | Source: [GitHub](https://github.com/koffielvis10/Wind-Risk-Pricer) """)
+st.markdown("Source Données météorologiques: [Open-Meteo](https://open-meteo.com/) ")
+st.markdown("Pour toute question ou suggestion, n'hésitez pas à me contacter !")
+st.markdown("""=================================================================================================================""")
 # Section de récupération des données
 st.sidebar.header("Configuration")
 
@@ -104,6 +107,7 @@ if st.sidebar.checkbox("📍 Afficher sur la carte"):
     folium.Marker([latitude, longitude], popup="Localisation sélectionnée").add_to(m)
     folium_static(m, width=800, height=400)
 
+st.sidebar.subheader("📅 Période d'analyse")
 start_date = st.sidebar.date_input("Date de début", value=pd.to_datetime("2022-01-01"))
 end_date = st.sidebar.date_input("Date de fin", value=pd.to_datetime("2025-12-31"))
 
